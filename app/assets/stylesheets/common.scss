@@ -1,0 +1,305 @@
+
+/****************
+* Definition
+*****************/
+$sidebar_width: 280px;
+$sidebar_height: 100vh;
+$logo_area_height: 120px;
+$side_background: #fff;
+$sidebar_menu_color: #666;
+
+$main_background: #f5f8fb;
+
+$header_height: 80px;
+$footer_height: 80px;
+
+
+$color_danger: #c58585;
+
+
+// 上下左右中央揃え
+@mixin w_h_center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/****************
+* Common
+*****************/
+#wrap {
+  display: flex;
+}
+
+
+/****************
+* Sidebar
+*****************/
+#sidebar {
+  width: $sidebar_width;
+  height: $sidebar_height;
+  background: $side_background;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#logoArea {
+  background: transparent;
+  width: 100%;
+  height: $logo_area_height;
+  position: relative;
+}
+
+#logo {
+  @include w_h_center;
+  width: 100%;
+}
+
+#logo h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: #035db6
+}
+
+
+#menuArea {
+  background: transparent;
+  width: 100%;
+  height: calc( 100% - #{$logo_area_height} );
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  ul {
+    box-sizing: border-box;
+
+    li {
+      list-style-type: none;
+      margin: 12px 0;
+      box-sizing: border-box;
+
+      a {
+        display: block;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: $sidebar_menu_color;
+        border-radius: 12px;
+        transition: all 0.2s;
+
+        &:hover {
+          background: #e7e7ee;
+        }
+      }
+    }
+  }
+}
+
+/****************
+* Main
+*****************/
+#main {
+  width: calc( 100vw - #{$sidebar_width} );
+  height: 100vh;
+  background: $main_background;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: auto;
+}
+
+
+/****************
+* Header
+*****************/
+#header {
+  width: calc( 100vw - #{$sidebar_width} );
+  height: $header_height;
+  background: $main_background;
+  // border-bottom: 1px solid #ddd;
+  padding: 4px 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  .header-inner {
+    width: 100%;
+  }
+
+  .header-contents {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .notice {
+    display: flex;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+  }
+
+  .notice-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    button {
+      border: none;
+      transition: 0.2s;
+      padding: 0;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+
+      &:hover {
+        background: #eaeaea;
+      }
+
+      .notice-svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .notice-badge {
+      width: 18px;
+      height: 18px;
+      text-align: center;
+      font-size: 12px;
+      background: #cc4242;
+      color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: -2px;
+      right: -4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .user {
+    margin: 0 48px 0 64px;
+
+    button {
+      border: none;
+      display: flex;
+      transition: 0.2s;
+      border-radius: 8px;
+
+      &:hover {
+        background: #eaeaea;
+      }
+    }
+  }
+
+  .user-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .user-name {
+    margin-left: 16px;
+  }
+}
+
+
+/****************
+* Contents
+*****************/
+#contents {
+  width: calc( 100vw - #{$sidebar_width} );
+  min-height: calc( 100vh - #{$header_height} - #{$footer_height} );
+  background: transparent;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  
+  h2 {
+    font-size: 18px;
+    color: #666;
+  }
+}
+
+
+/****************
+* Footer
+*****************/
+#footer {
+  width: calc( 100vw - #{$sidebar_width} );
+  height: $footer_height;
+  line-height: $footer_height;
+
+  .copyright {
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+
+/****************
+* Parts
+*****************/
+.card {
+  border-radius: 12px;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.button-rounded {
+  border-radius: 50px !important;
+}
+
+.text-danger {
+  color: $color_danger !important;
+}
+
+table {
+
+  tbody td.td-action {
+    position: relative;
+
+    button.td-action-button {
+    border: none;
+    visibility: hidden;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    outline: none;
+    padding: 0;
+    line-height: 0;
+    @include w_h_center;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+
+      img {
+        width: 12px;
+      }
+    }
+  }
+}
+
+.dropdown-contents {
+  .action-icon {
+    margin-right: 8px;
+
+    .action-svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .trash-svg,
+    .logout-svg {
+      fill: $color_danger;
+    }
+  }
+}

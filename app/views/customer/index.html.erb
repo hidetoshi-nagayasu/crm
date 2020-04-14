@@ -1,0 +1,70 @@
+<%= render 'layouts/sidebar' %>
+
+<main id="main">
+  <%= render 'layouts/header' %>
+  <div id="contents">
+    <h2>顧客管理</h2>
+    <div class="card uk-card uk-card-default uk-card-body">
+      <a href="/customer/new" class="button-rounded uk-button uk-button-primary">新規登録</a>
+      <table class="js-index-table uk-table uk-table-divider">
+        <thead>
+          <tr>
+            <th class="text-left">氏名</th>
+            <th class="text-left">年齢</th>
+            <th class="text-left">メールアドレス</th>
+            <th class="text-left">作成日</th>
+            <th class="text-left">最終更新日</th>
+            <th class="text-left"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.first_name %> <%= customer.last_name %></td>
+              <td><%= customer.age %></td>
+              <td><%= customer.email %></td>
+              <td><%= customer.created_at.strftime("%Y/%m/%d %H:%m") %></td>
+              <td><%= customer.updated_at.strftime("%Y/%m/%d %H:%m") %></td>
+              <td class="td-action">
+                <button type="button" class="td-action-button uk-button uk-button-default">
+                  <%= image_tag  "action.svg" %>
+                </button>
+                <div class="card dropdown-contents uk-card uk-card-default uk-card-body uk-dropdown uk-dropdown-bottom-left" uk-dropdown="mode: click">
+                  <ul class="uk-nav uk-dropdown-nav">
+                    <li>
+                      <a href="#">
+                        <span class="action-icon"><%= embedded_svg("detail.svg", class: "action-svg detail-svg") %></span>
+                        <span>Detail<span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="action-icon"><%= embedded_svg("edit.svg", class: "action-svg edit-svg") %></span>
+                        <span>Edit<span>
+                      </a>
+                    </li>
+                    <li class="uk-nav-divider"></li>
+                    <li>
+                      <a href="#" class="text-danger">
+                        <span class="action-icon"><%= embedded_svg("trash.svg", class: "action-svg trash-svg") %></span>
+                        <span>Delete</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <ul class="uk-pagination uk-flex-center" uk-margin>
+        <li><a href="#"><span uk-pagination-previous></span></a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li class="uk-disabled"><span>...</span></li>
+        <li><a href="#"><span uk-pagination-next></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</main>
