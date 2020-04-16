@@ -57,13 +57,10 @@
           <% end %>
         </tbody>
       </table>
-      <ul class="uk-pagination uk-flex-center" uk-margin>
-        <li><a href="#"><span uk-pagination-previous></span></a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li class="uk-disabled"><span>...</span></li>
-        <li><a href="#"><span uk-pagination-next></span></a></li>
-      </ul>
+
+      <%# Pagination %>
+      <%= paginate @customers, theme: 'custom_theme' %>
+
     </div>
   </div>
   <%= render 'layouts/footer' %>

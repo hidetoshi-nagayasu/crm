@@ -2,7 +2,7 @@ class CustomerController < ApplicationController
 
   # GET /customer
   def index
-    @customers = Customer.order('updated_at').limit(20)
+    @customers = Customer.all.page(params[:page]).per(10).order('updated_at')
   end
 
   # GET /customer/:id
