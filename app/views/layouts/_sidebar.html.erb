@@ -3,7 +3,12 @@
   <!-- Logo -->
   <section id="logoArea">
     <div id="logo">
-      <h1>ABC Reform</h1>
+      <h1>
+        <span class="logo-icon">
+          <%= embedded_svg("abc.svg", class: "logo-svg abc-svg") %>
+        </span>
+        <span class="logo-text">ABC Reform</span>
+      </h1>
     </div>
   </section>
 
@@ -12,23 +17,50 @@
     <div>
       <ul>
         <li>
-          <a href="/">ダッシュボード</a>
+          <a href="/">
+            <span class="sidebar-icon">
+              <%= embedded_svg("dashboard.svg", class: "sidebar-icon-svg dashboard-svg") %>
+            </span>
+            <span class="sidebar-menu-text">ダッシュボード</span></a>
         </li>
         <li>
-          <a href="/customer">顧客管理</a>
+          <a href="/customer">
+            <span class="sidebar-icon">
+              <%= embedded_svg("group.svg", class: "sidebar-icon-svg group-svg") %>
+            </span>
+            <span class="sidebar-menu-text">顧客管理</span>
+          </a>
         </li>
         <li>
-          <a href="/order">受注管理</a>
+          <a href="/order">
+            <span class="sidebar-icon">
+              <%= embedded_svg("graph.svg", class: "sidebar-icon-svg graph-svg") %>
+            </span>
+            <span class="sidebar-menu-text">受注管理</span></a>
         </li>
         <li>
-          <a href="/employee">従業員管理</a>
+          <a href="/employee">
+            <span class="sidebar-icon">
+              <%= embedded_svg("identity.svg", class: "sidebar-icon-svg identity-svg") %>
+            </span>
+            <span class="sidebar-menu-text">従業員管理</span>
+          </a>
         </li>
       </ul>
     </div>
   </nav>
 
   <div id="sidebarTrigger" class="sidebar-trigger">
-    <div></div>
+    <div class="sidebar-trigger-inner">
+      <button type="button" class="sidebar-toggle-button js-sidebar-toggle" data-is-closed="false">
+        <div class="sidebar-close">
+          <%= embedded_svg("back.svg", class: "sidebar-toggle-svg back-svg") %>
+          <%= embedded_svg("next.svg", class: "sidebar-toggle-svg next-svg") %>
+          </div>
+        <div class="sidebar-trigger-text trigger-close">Close</div>
+        <div class="sidebar-trigger-text trigger-open">Open</div>
+      </button>
+    </div>
   </div>
 
 </section>
