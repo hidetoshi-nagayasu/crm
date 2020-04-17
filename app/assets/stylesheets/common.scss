@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+1p:wght@400;700;900&display=swap');
 
 /****************
 * Definition
@@ -15,11 +15,12 @@ $main_background: #f5f8fb;
 $header_height: 80px;
 $footer_height: 80px;
 
-
+$color_contents_h2: #035db6;
 $color_danger: #c58585;
 $color_button_bg: #eaeaea;
 
 $transition_02: 0.2s;
+$radius12: 12px;
 
 
 // 上下左右中央揃え
@@ -35,7 +36,7 @@ $transition_02: 0.2s;
 * Font
 *****************/
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', 'Noto Sans JP', sans-serif;
 }
 
 
@@ -159,7 +160,7 @@ $transition_02: 0.2s;
 
 #logo h1 {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 900;
   margin: 0;
   text-align: center;
   color: #035db6
@@ -187,7 +188,7 @@ $transition_02: 0.2s;
         padding: 8px 12px;
         text-decoration: none;
         color: $sidebar_menu_color;
-        border-radius: 12px;
+        border-radius: $radius12;
         transition: $transition_02;
 
         &:hover {
@@ -301,7 +302,7 @@ $transition_02: 0.2s;
       border: none;
       display: flex;
       transition: $transition_02;
-      border-radius: 8px;
+      border-radius: $radius12;
       padding: 0 16px;
 
       &:hover {
@@ -331,9 +332,10 @@ $transition_02: 0.2s;
   padding: 16px 24px;
   box-sizing: border-box;
   
-  h2 {
+  h2.contents-title {
     font-size: 18px;
-    color: #666;
+    color: $color_contents_h2;
+    font-weight: bold;
   }
 }
 
@@ -359,7 +361,7 @@ $transition_02: 0.2s;
 * Parts
 *****************/
 .card {
-  border-radius: 12px;
+  border-radius: $radius12;
 }
 
 .text-left {

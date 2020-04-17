@@ -1,5 +1,8 @@
 
 .uk-table {
+  thead th {
+    font-weight: bold;
+  }
   td {
     font-size: 14px;
   }
@@ -7,4 +10,12 @@
 
 .uk-button {
   text-transform: none !important;
+}
+
+.uk-modal-dialog {
+  border-radius: 12px;
+
+  button {
+    border-radius: 50px;
+  }
 }

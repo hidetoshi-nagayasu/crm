@@ -3,7 +3,7 @@
 <main id="main">
   <%= render 'layouts/header' %>
   <div id="contents">
-    <h2>顧客管理</h2>
+    <h2 class="contents-title">顧客管理</h2>
     <div class="card uk-card uk-card-default uk-card-body">
       <a href="/customer/new" class="button-rounded uk-button uk-button-primary">新規登録</a>
       <table class="js-index-table uk-table uk-table-divider">
@@ -32,20 +32,20 @@
                 <div class="card dropdown-contents uk-card uk-card-default uk-card-body uk-dropdown uk-dropdown-bottom-left" uk-dropdown="mode: click">
                   <ul class="uk-nav uk-dropdown-nav">
                     <li>
-                      <a href="#">
+                      <a href="/customer/<%= customer.id %>">
                         <span class="action-icon"><%= embedded_svg("detail.svg", class: "action-svg detail-svg") %></span>
                         <span>Detail<span>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="/customer/<%= customer.id %>/edit">
                         <span class="action-icon"><%= embedded_svg("edit.svg", class: "action-svg edit-svg") %></span>
                         <span>Edit<span>
                       </a>
                     </li>
                     <li class="uk-nav-divider"></li>
                     <li>
-                      <a href="#" class="text-danger">
+                      <a href="#confirmModal" class="js-delete-button text-danger" uk-toggle data-id="<%= customer.id %>">
                         <span class="action-icon"><%= embedded_svg("trash.svg", class: "action-svg trash-svg") %></span>
                         <span>Delete</span>
                       </a>
@@ -60,6 +60,17 @@
 
       <%# Pagination %>
       <%= paginate @customers, theme: 'custom_theme' %>
+
+      <%# Confirm Modal %>
+      <div id="confirmModal" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body">
+              <p>本当に削除してもよろしいですか？<br>この操作は取り消せませんのでご注意ください。</p>
+              <p class="uk-text-right">
+                  <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                  <button class="js-delete-execute uk-button uk-button-danger" type="button">Delete</button>
+              </p>
+          </div>
+      </div>
 
     </div>
   </div>
