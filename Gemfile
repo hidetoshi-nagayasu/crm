@@ -49,3 +49,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Pagenation
 gem 'kaminari'
+
+# Auth
+gem 'devise'

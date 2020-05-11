@@ -1,0 +1,6 @@
+@import 'variables';
+
+#signinCard {
+  @include w_h_center;
+  border-radius: $radius12;
+}

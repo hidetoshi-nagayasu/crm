@@ -29,5 +29,5 @@ names = JSON.parse(res.body)['name']
   en_array = name[2].split
   email = en_array[1].downcase + '.' + en_array[0].downcase + '@example.com'
 
-  Customer.create({ last_name: kanji_array[1], first_name: kanji_array[0], age: rand(20..50), email: email, created_by: 1, updated_at: Time.now })
+  Customer.create({ last_name: kanji_array[0], first_name: kanji_array[1], age: rand(20..50), email: email, created_by: 1, updated_at: Time.now })
 end

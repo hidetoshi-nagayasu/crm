@@ -1,0 +1,35 @@
+/****************
+* Definition
+*****************/
+$sidebar_width: 280px;
+$sidebar_height: 100vh;
+$logo_area_height: 120px;
+$sidebar_trigger_height: 80px;
+$side_background: #fff;
+$sidebar_menu_color: #666;
+
+$main_background: #f5f8fb;
+$input_background: #f5f8fb;
+
+$header_height: 80px;
+$footer_height: 80px;
+
+$color_contents_h2: #3877b9;
+$color_contents_subtitle: #a9a9a9;
+$color_danger: #c58585;
+$color_button_bg: #eaeaea;
+
+$transition_02: 0.2s;
+$radius12: 12px;
+
+
+/****************
+* Function
+*****************/
+// 上下左右中央揃え
+@mixin w_h_center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

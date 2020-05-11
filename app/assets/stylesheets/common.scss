@@ -1,35 +1,5 @@
+@import 'variables';
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+1p:wght@400;700;900&display=swap');
-
-/****************
-* Definition
-*****************/
-$sidebar_width: 280px;
-$sidebar_height: 100vh;
-$logo_area_height: 120px;
-$sidebar_trigger_height: 80px;
-$side_background: #fff;
-$sidebar_menu_color: #666;
-
-$main_background: #f5f8fb;
-
-$header_height: 80px;
-$footer_height: 80px;
-
-$color_contents_h2: #035db6;
-$color_danger: #c58585;
-$color_button_bg: #eaeaea;
-
-$transition_02: 0.2s;
-$radius12: 12px;
-
-
-// 上下左右中央揃え
-@mixin w_h_center() {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 
 /****************
@@ -331,11 +301,21 @@ $radius12: 12px;
   background: transparent;
   padding: 16px 24px;
   box-sizing: border-box;
+
+  .title-wrapper {
+    margin-bottom: 24px;
+  }
   
   h2.contents-title {
-    font-size: 18px;
+    font-size: 24px;
     color: $color_contents_h2;
     font-weight: bold;
+    margin: 0;
+  }
+
+  .contents-subtitle span {
+    color: $color_contents_subtitle
+
   }
 }
 
@@ -417,5 +397,37 @@ table {
     .logout-svg {
       fill: $color_danger;
     }
+  }
+}
+
+form.form-custom {
+
+  input[type=text],
+  select,
+  textarea {
+    border-radius: 8px !important;
+  }
+
+  input[type=text] {
+    background: $input_background;
+  }
+
+  .label {
+    color: #a0a0a0;
+  }
+
+  .form-item {
+    margin-bottom: 48px;
+  }
+}
+
+.alert-custom {
+  border-radius: 12px;
+
+  .uk-alert-close {
+    position: absolute;
+    top: 20px;
+    left: initial;
+    right: 15px;
   }
 }

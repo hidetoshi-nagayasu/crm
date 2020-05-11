@@ -21,22 +21,22 @@
           <div class="user-icon">
             <%= image_tag  "user.svg" %>
           </div>
-          <div class="user-name">username</div>
+          <div class="user-name"><%= current_user.user_name %></div>
         </button>
         <div class="card uk-card uk-card-default uk-card-body uk-dropdown uk-dropdown-bottom-right" uk-dropdown="mode: click">
           <ul class="dropdown-contents uk-nav uk-dropdown-nav">
             <li>
-              <a href="#">
+              <%= link_to edit_user_registration_path do %>
                 <span class="action-icon"><%= embedded_svg("user.svg", class: "action-svg user-svg") %></span>
-                <span>My page</span>
-              </a>
+                <span>Edit profile</span>
+              <% end %>
             </li>
             <li class="uk-nav-divider"></li>
             <li>
-              <a href="#" class="text-danger">
+              <%= link_to destroy_user_session_path, method: :delete, class: "text-danger" do %>
                 <span class="action-icon"><%= embedded_svg("logout.svg", class: "action-svg logout-svg") %></span>
                 <span>Sign out<span>
-              </a>
+              <% end %>
             </li>
           </ul>
         </div>

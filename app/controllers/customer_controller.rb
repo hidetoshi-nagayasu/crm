@@ -1,8 +1,12 @@
 class CustomerController < ApplicationController
 
+  protect_from_forgery
+
+  before_action :sign_in_required
+
   # GET /customer
   def index
-    @customers = Customer.all.page(params[:page]).per(10).where(is_deleted: 0).order('updated_at')
+    @customers = Customer.all.order('updated_at desc').page(params[:page]).per(10).where(is_deleted: 0)
   end
 
   # GET /customer/:id
@@ -17,7 +21,7 @@ class CustomerController < ApplicationController
 
   # POST /customer
   def create
-    @customer = Customer.new(params[:customer])
+    @customer = Customer.new(customer_params)
 
     respond_to do |format|
       if @customer.save
@@ -52,7 +56,7 @@ class CustomerController < ApplicationController
 
   # DELETE /customer/:id
   def destroy
-    @customer = Friend.find(params[:id])
+    @customer = Customer.find(params[:id])
     
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
@@ -63,5 +67,23 @@ class CustomerController < ApplicationController
         format.json { render json: @friend.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  private
+  def customer_params
+    params.permit(
+      :last_name,
+      :first_name,
+      :gender,
+      :zip_code,
+      :prefecture_code,
+      :city,
+      :street,
+      :building,
+      :phone_number,
+      :mobile_number,
+      :email,
+      :created_by
+    )
   end
 end

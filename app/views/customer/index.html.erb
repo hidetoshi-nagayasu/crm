@@ -3,7 +3,10 @@
 <main id="main">
   <%= render 'layouts/header' %>
   <div id="contents">
-    <h2 class="contents-title">顧客管理</h2>
+    <div class="title-wrapper">
+      <h2 class="contents-title">顧客管理</h2>
+      <div class="contents-subtitle"><span>Customer Index</span></div>
+    </div>
     <div class="card uk-card uk-card-default uk-card-body">
       <a href="/customer/new" class="button-rounded uk-button uk-button-primary">新規登録</a>
       <table class="js-index-table uk-table uk-table-divider">
@@ -20,7 +23,7 @@
         <tbody>
           <% @customers.each do |customer| %>
             <tr>
-              <td><%= customer.first_name %> <%= customer.last_name %></td>
+              <td><%= customer.last_name %> <%= customer.first_name %></td>
               <td><%= customer.age %></td>
               <td><%= customer.email %></td>
               <td><%= customer.created_at.strftime("%Y/%m/%d %H:%m") %></td>

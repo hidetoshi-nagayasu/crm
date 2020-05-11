@@ -3,18 +3,103 @@
 <main id="main">
   <%= render 'layouts/header' %>
   <div id="contents">
-    <h2>顧客管理</h2>
+    <div class="title-wrapper">
+      <h2 class="contents-title">顧客管理 - 新規登録</h2>
+      <div class="contents-subtitle"><span>New Customer</span></div>
+    </div>
     <div class="card uk-card uk-card-default uk-card-body">
-      <form>
-        <fieldset class="uk-fieldset">
+      <form action="/customer" method="post" class="uk-form-stacked form-custom form-customer">
 
-          <legend class="uk-legend">新規顧客登録</legend>
-
-          <div class="uk-margin">
-              <input class="uk-input" type="text" placeholder="Input">
+        <%# 氏名 %>
+        <div class="form-item">
+          <fieldset class="uk-fieldset fieldset-custom">基本情報</fieldset>
+          <div class="uk-form-controls input-flex">
+            <div class="form-item-one">
+              <label class="uk-form-label label">性</label>
+              <input type="text" name="last_name" class="uk-input l-name" placeholder="山田">
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">名</label>
+              <input type="text" name="first_name" class="uk-input f-name" placeholder="太郎">
+            </div>
           </div>
-        </fieldset>
+          <div class="uk-form-controls">
+            <div class="form-item-one">
+              <label class="uk-form-label label">性別</label>
+              <div class="gender-radio-flex">
+                <label for="gender-male" class="label-gender-radio label-gender-radio-male">
+                  <input type="radio" name="gender" id="gender-male" value="1" class="radio-male">
+                  <div class="radio-body radio-icon">
+                    <%= embedded_svg("male.svg", class: "gender-svg male-svg") %>
+                  </div>
+                  <div class="radio-option radio-text">男性</div>
+                </label>
+                <label for="gender-female" class="label-gender-radio label-gender-radio-female">
+                  <input type="radio" name="gender" id="gender-female" value="2" class="radio-female">
+                  <div class="radio-body radio-icon">
+                    <%= embedded_svg("female.svg", class: "gender-svg female-svg") %>
+                  </div>
+                  <div class="radio-option radio-text">女性</div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%# 住所 %>
+        <div class="form-item form-address">
+          <fieldset class="uk-fieldset fieldset-custom">住所</fieldset>
+          <div class="uk-form-controls">
+            <div class="form-item-one">
+              <label class="uk-form-label label">郵便場号</label>
+              <input type="text" name="zip_code" class="uk-input input-zipcode" placeholder="127-0021">
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">都道府県</label>
+              <select name="prefecture_code" id="prefectureSelect" class="uk-select js-pref-pulldown">
+                <option value="" selected>選択してください</option>
+              </select>
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">市区町村</label>
+              <input type="text" name="city" class="uk-input" placeholder="渋谷区">
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">町名・番地</label>
+              <input type="text" name="street" class="uk-input" placeholder="渋谷3丁目2-1">
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">建物名・部屋番号</label>
+              <input type="text" name="building" class="uk-input" placeholder="サンプルビルディング201号">
+            </div>
+          </div>
+        </div>
+
+        <%# 連絡先 %>
+        <div class="form-item">
+          <fieldset class="uk-fieldset fieldset-custom">連絡先</fieldset>
+          <div class="uk-form-controls">
+            <div class="form-item-one">
+              <label class="uk-form-label label">電話番号</label>
+              <input type="text" name="phone_number" class="uk-input" placeholder="03-1234-5678">
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">携帯番号</label>
+              <input type="text" name="mobile_number" class="uk-input" placeholder="090-1234-5678">
+            </div>
+            <div class="form-item-one">
+              <label class="uk-form-label label">メールアドレス</label>
+              <input type="text" name="email" class="uk-input" placeholder="taro.yamada@example.com">
+            </div>
+        </div>
+
+        <input type="hidden" name="created_by" value=1>
+        <div class="form-submit">
+          <button type="submit" class="button-rounded uk-button uk-button-primary">登録する</button>
+        </div>
       </form>
     </div>
   </div>
+
+  <%= render 'layouts/footer' %>
 </main>

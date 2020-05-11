@@ -1,2 +1,45 @@
-<h1>Customer#show</h1>
-<p>Find me in app/views/customer/show.html.erb</p>
+<%= render 'layouts/sidebar' %>
+
+<main id="main">
+  <%= render 'layouts/header' %>
+  <div id="contents">
+    <div class="title-wrapper">
+      <h2 class="contents-title">顧客管理 - 詳細</h2>
+      <div class="contents-subtitle"><span>Customer Detail</span></div>
+    </div>
+    <div class="card uk-card uk-card-default uk-card-body">
+      <% if flash[:notice] %>
+        <div class="uk-alert-success alert-custom" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p><%= flash[:notice] %></p>
+        </div>
+      <% end %>
+      <table class="uk-table">
+        <tbody>
+          <tr>
+            <th class="uk-width-1-4 table-vertical-header">氏名</th>
+            <td class="uk-width-3-4 table-data"><%= "#{@customer.last_name} #{@customer.first_name}" %></td>
+          </tr>
+          <tr>
+            <th class="uk-width-1-4 table-vertical-header">住所</th>
+            <td class="uk-width-3-4 table-data">&#12306;<%= @customer.zip_code %><br><%= "#{@customer.prefecture_code}#{@customer.city}#{@customer.street}#{@customer.building}" %></td>
+          </tr>
+          <tr>
+            <th class="uk-width-1-4 table-vertical-header">電話番号</th>
+            <td class="uk-width-3-4 table-data"><%= @customer.try(:phone_number) || "-" %></td>
+          </tr>
+          <tr>
+            <th class="uk-width-1-4 table-vertical-header">携帯番号</th>
+            <td class="uk-width-3-4 table-data"><%= @customer.try(:mobile_number) || "-" %></td>
+          </tr>
+          <tr>
+            <th class="uk-width-1-4 table-vertical-header">メールアドレス</th>
+            <td class="uk-width-3-4 table-data"><%= @customer.try(:email) || "-" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
+</main>

@@ -2,3 +2,137 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Detail
+table {
+  th.table-vertical-header {
+    padding-right: 36px;
+  }
+
+  td.table-data {
+    font-size: 16px;
+  }
+}
+
+
+// New
+form.form-customer {
+  max-width: 400px;
+  margin: 0 auto;
+
+  .input-flex {
+    display: flex;
+  }
+
+  .fieldset-custom {
+    font-size: 18px;
+    color: #5787c3;
+    font-weight: bold;
+  }
+
+  .gender-radio-flex {
+    display: flex;
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+
+  .label-gender-radio {
+    width: 140px;
+    border-radius: 12px;
+    border-radius: 12px;
+    display: block;
+    width: 80px;
+    background: #fff;
+    padding: 8px 12px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    margin-right: 12px;
+
+    &:hover {
+      cursor: pointer;
+      // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      background: #f9f9f9;
+    }
+
+    .gender-svg {
+      width: 32px;
+      fill: #e0e0e0;
+    }
+
+    .radio-text {
+      margin-top: 8px;
+      color: #a9a9a9;
+      font-size: 12px;
+    }
+  }
+
+  $color_male: #5787c3;
+  $color_female: #bf6cd8;
+
+  .label-gender-radio-male.checked {
+    border: 2px solid $color_male;
+    background: #f3f8ff;
+
+    .radio-text {
+      color: $color_male;
+    }
+
+    .gender-svg {
+      fill: $color_male;
+    }
+  }
+
+  .label-gender-radio-female.checked {
+    border: 2px solid $color_female;
+    background: #fdf2ff;
+
+    .radio-text {
+      color: $color_female;
+    }
+
+    .gender-svg {
+      fill: $color_female;
+    }
+  }
+
+  input.l-name,
+  input.f-name {
+    width: 200px;
+    margin-right: 16px;
+  }
+
+  .form-item-one {
+    margin: 24px 0;
+  }
+
+  .form-address {
+
+    input[type=text] {
+      width: 400px;
+    }
+
+    select,
+    input.input-zipcode {
+      width: 240px;
+    }
+  }
+
+  .form-submit {
+    display: flex;
+    justify-content: center;
+  }
+
+  button[type=submit] {
+    width: 200px;
+    padding: 4px 0;
+  }
+
+  select {
+    background-color: #f5f8fb;
+
+    &:focus {
+      background-color: #f5f8fb;
+    }
+  }
+}
