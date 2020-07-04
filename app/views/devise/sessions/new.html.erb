@@ -1,25 +1,39 @@
 <div id="signinCard" class="uk-card uk-card-default uk-card-body">
-  <h2>Log in</h2>
+  <h2>
+    <span class="logo-icon">
+      <%= embedded_svg("abc.svg", class: "logo-svg abc-svg") %>
+    </span>
+    <span class="logo-text">ABC Reform</span>
+  </h2>
+
+  <p class="uk-text-center uk-text-muted">Log in</p>
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="uk-margin">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "uk-input" %>
+      </div>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="uk-margin">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "uk-input" %>
+      </div>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <div class="uk-margin">
+          <%= f.check_box :remember_me, class: "cursor-pointer" %>
+          <%= f.label :remember_me, class: "cursor-pointer" %>
+        </div>
       </div>
     <% end %>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
+    <div class="actions uk-margin">
+      <%= f.submit "Log in", class: "uk-button uk-button-primary uk-width-1-1" %>
     </div>
   <% end %>
 

@@ -3,4 +3,24 @@
 #signinCard {
   @include w_h_center;
   border-radius: $radius12;
+  width: 400px;
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=submit] {
+    border-radius: 40px;
+  }
+
+  .logo-svg {
+    width: 80px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 900;
+    margin: 24px;
+    text-align: center;
+    color: #035db6
+  }
 }
