@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  username: <%= ENV['CRM_DATABASE_USER'] %>
   password: <%= ENV['CRM_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
 
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: crm
-  username: root
+  username: <%= ENV['CRM_DATABASE_USER'] %>
   password: <%= ENV['CRM_DATABASE_PASSWORD'] %>
