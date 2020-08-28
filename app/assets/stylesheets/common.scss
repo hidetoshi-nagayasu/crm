@@ -46,6 +46,7 @@
       padding: 0;
       cursor: pointer;
       outline: none;
+      background: transparent;
 
       &:hover {
         background: $color_button_bg;
@@ -133,7 +134,12 @@
   font-weight: 900;
   margin: 0;
   text-align: center;
-  color: #035db6
+  color: #035db6;
+
+  a {
+    color: #035db6;
+    text-decoration: none;
+  }
 }
 
 
